@@ -24,3 +24,20 @@
 #homepagecontactmaprow {
   padding-bottom: 30px;
 }
+
+.modal-button-backgrounds {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  border: white solid 4px;
+}
+
+#catalogue button {
+  background-color: none;
+  width: 100%;
+  text-align:center;
+  background-color: lightgrey;
+  color: black;
+  font-weight: 500;
+  border: darkgrey solid 1px;
+}
