@@ -1,0 +1,26 @@
+// Place all the styles related to the simple_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#myCarousel {
+  padding-top : 20px;
+  padding-bottom: 20px;
+}
+
+#dealbar {
+  padding-top: 20px;
+
+}
+
+#dealtext {
+  background-color: lightyellow;
+  box-shadow: 0 0 1px 1px black;
+  text-align: center;
+}
+
+#homepagecontact,
+#googlemaps {
+}
+
+#homepagecontactmaprow {
+  padding-bottom: 30px;
+}

@@ -1,15 +1,61 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <title>A1directsupplies</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="abovenavsection">
+      <p style="text-align:center;">
+        <%=link_to image_tag("A1 Direct Supplies Home.png", id: "topnavimage"), simple_pages_index_path%>
+      <p>
+    </div>
+    <div class="container containerbody">
+      <div class="customnavbar">
+        <div class="row">
+          <div class="col-3 navbarselector navbarselectorleft">
+            <p><%=link_to "Our Products", simple_pages_products_path%></p>
+          </div>
+          <div class="col-3 navbarselector">
+            <p><%=link_to "Online Store", simple_pages_index_path%></p>
+          </div>
+          <div class="col-3 navbarselector">
+            <p><%=link_to "Contact Us", simple_pages_contact_path%></p>
+          </div>
+          <div class="col-3 navbarselector navbarselectorright">
+            <p><%=link_to "About us", simple_pages_about_path%></p>
+          </div>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+    <footer>
+      <div class="row">
+        <div class="col-6 col-sm-3">
+          <p>Contact Us</p>
+        </div>
+        <div class="col-6 col-sm-3">
+          <p>Return to home page</p>
+        </div>
+        <div class="col-6 col-sm-3">
+          <p>Email Us - sales@a1directsupplies.co.uk</p>
+        </div>
+        <div class="col-6 col-sm-3">
+          <p>Call us - 01773 767666</p>
+        </div>
+        <div class="col-12">
+          <p>Designed and created by Louie Ormston</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
