@@ -85,7 +85,7 @@ var catalogueProducts = [
   }
 ]
 
-$(document).ready(function () {
+document.addEventListener("turbolinks:load", function () {
   for(var i = 0; i < catalogueProducts.length; ++i ) {
     $("#catalogue").append("\
       <div class='col-sm-3 col-6 modal-button-backgrounds' style='background-image:  " + catalogueProducts[i].pic + "  '>\
