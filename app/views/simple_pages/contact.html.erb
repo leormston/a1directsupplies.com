@@ -1,0 +1,29 @@
+<h3 style="padding-top: 20px;">Come and talk to us</h3>
+<hr>
+<p>We love talking and we and we want to talk to you. Open 9am - 5pm every working day, feel free to come in and visit our Nottingham
+branch. If you aren't able to make a physical visit to us, try contacting us by one of the following methods. </p>
+
+<%= form_with(url: "/simple_pages/thank_you", method: "post", local: true) do |form| %>
+<div>
+  <div class="form-group">
+    <%=form.label :name%>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter Name"%>
+  </div>
+  <div class="form-group">
+    <%=form.label :email%>
+    <%= form.text_field :email, class: "form-control", placeholder: "Enter email"%>
+  </div>
+  <div class="form-group">
+    <%=form.label :phone%>
+    <%= form.text_field :phone, class: "form-control", placeholder: "Enter phone number"%>
+  </div>
+  <div class="form-group">
+    <%=form.label :message%>
+    <%= form.text_field :message, class: "form-control", placeholder: "Type Enquiry here"%>
+  </div>
+<%= form.submit "Send", class: "form_label"%>
+</div>
+
+<%end%>
+
+<%= render 'contact_block'%>
