@@ -3,6 +3,12 @@
 <p>We love talking and we and we want to talk to you. Open 9am - 5pm every working day, feel free to come in and visit our Nottingham
 branch. If you aren't able to make a physical visit to us, try contacting us by one of the following methods. </p>
 
+<%= render 'contact_block'%>
+
+
+
+<h3 style="padding-top: 20px;">Send us an email!</h3>
+<hr>
 <%= form_with(url: "/simple_pages/thank_you", method: "post", local: true) do |form| %>
 <div>
   <div class="form-group">
@@ -25,5 +31,3 @@ branch. If you aren't able to make a physical visit to us, try contacting us by 
 </div>
 
 <%end%>
-
-<%= render 'contact_block'%>
