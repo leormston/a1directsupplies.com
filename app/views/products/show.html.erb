@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h2> <strong><%=@product.name%></strong> </h2>
+<h5>A1 Product No: <%=@product.part_number%> </h5>
+<hr>
+
+<div class="row">
+  <div class="col-12 col-sm-8">
+    <%=image_tag(@product.image_url, width: "100%", height: "500px;")%>
+  </div>
+  <div class="col-12 col-sm-4">
+    <div class="pricearea">
+      <h2 id="price">£<%=number_with_precision(@product.price.to_f / 100, precision: 2)%></h2>
+      <hr>
+    </div>
+    <h5 id="productdescription"><%=@product.description%></h5>
+    <div class="pricearea">
+      <h5>
+        <%= form_with(url: "/user/cart", method: "post", local: true) do |form| %>
+          <%=form.label :quantity%>
+          <%=form.select(:quantity, Product::QUANTITY_LIST)%>
+          <%=form.submit "Add to cart", class: "Addcartbutton"%>
+        <%end%>
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="productinfo">
+  <h2><strong>Product Info </strong></h2>
+  <hr>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <p>
+        <strong>Description:</strong>
+        <%= @product.description %>
+      </p>
+
+      <p>
+        <strong>Part number:</strong>
+        <%= @product.part_number %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        £<%=number_with_precision(@product.price.to_f / 100, precision: 2)%>
+      </p>
+    </div>
+    <div class="col-12 col-sm-6">
+      <p>
+        <strong>Category:</strong>
+        <%= @product.category %>
+      </p>
+      <p>
+        <strong>Brand:</strong>
+        <%= @product.brand %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

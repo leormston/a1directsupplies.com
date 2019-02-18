@@ -13,10 +13,21 @@
   </head>
 
   <body>
-    <div class="abovenavsection">
-      <p style="text-align:center;">
-        <%=link_to image_tag("A1 Direct Supplies Home.png", id: "topnavimage"), simple_pages_index_path%>
-      <p>
+    <div class="row abovenavsection">
+      <div class="col-4">
+        <%if user_signed_in?%>
+          <span> <h3><%=link_to 'Log Out', simple_pages_products_path%></h3></span>
+        <%else%>
+          <span><h3><%=link_to 'Log In', new_user_session_path%></h3></span>
+        <%end%>
+      </div>
+      <div class="col-4">
+        <p style="text-align:center;">
+          <%=link_to image_tag("A1 Direct Supplies Home.png", id: "topnavimage"), simple_pages_index_path%>
+        </p>
+      </div>
+      <div class="col-4">
+      </div>
     </div>
     <div class="container containerbody">
       <div class="customnavbar">
@@ -25,7 +36,7 @@
             <p><%=link_to "Our Products", simple_pages_products_path%></p>
           </div>
           <div class="col-3 navbarselector">
-            <p><%=link_to "Online Store", simple_pages_index_path%></p>
+            <p><%=link_to "Online Store", products_path%></p>
           </div>
           <div class="col-3 navbarselector">
             <p><%=link_to "Contact Us", simple_pages_contact_path%></p>

@@ -1,0 +1,35 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.productmini {
+  border: black solid 1px;
+}
+
+.pricearea {
+  background-color: #f9f9f9;
+  border-radius: 15px ;
+}
+
+#price {
+  padding-top: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+#productdescription {
+  text-align: center;
+}
+
+.productinfo {
+  background-color: #f9f9f9;
+  border-radius: 15px ;
+}
+
+.pricearea {
+  text-align: center;
+}
+
+.Addcartbutton {
+  text-align:  center;
+}

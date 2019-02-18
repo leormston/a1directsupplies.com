@@ -68,3 +68,15 @@ footer {
   background-color: white;
   border-top: 10px solid #E4EFF0;
 }
+
+span {
+
+ display: inline-block;
+
+ vertical-align: middle;
+ text-align:center;
+ line-height: normal;
+ padding-top: 30px;
+ font-size: 2rem;
+padding-left: 25%;
+}

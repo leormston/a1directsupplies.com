@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+<hr>
+<div class="row">
+  <div class="col-3">
+    <h5> Filter Category</h5>
+  </div>
+  <div class="col-3">
+    <%= form_with(url: "/products", method: "get", local: true) do |form| %>
+      <%= form.select(:category, Product::PRODUCT_LIST)%>
+  </div>
+  <div class="col-3">
+    <%= form.submit "Send", class: "form_label"%>
+    <%end%>
+  </div>
+</div>
+
+
+
+<%= render 'product_list'%>
+
+
+<%= link_to 'New Product', new_product_path %>
