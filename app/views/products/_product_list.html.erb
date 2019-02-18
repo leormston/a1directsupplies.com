@@ -10,7 +10,7 @@
     <h3><%=link_to product.name, product%></h3>
     <hr>
     <p>Product Code: <%=product.part_number%></p>
-    <h5 style="text-align: right">£<%=product.price.to_f / 100%></h5>
+    <h5 style="text-align: right">£<%=number_with_precision(product.price.to_f / 100, precision: 2)%></h5>
     <div class="admintools">
       <%= link_to 'Edit', edit_product_path(product) %>
       <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
