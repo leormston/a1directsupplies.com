@@ -16,7 +16,7 @@
     <div class="row abovenavsection">
       <div class="col-4">
         <%if user_signed_in?%>
-          <span> <h3><%=link_to 'Log Out', simple_pages_products_path%></h3></span>
+          <span> <h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3></span>
         <%else%>
           <span><h3><%=link_to 'Log In', new_user_session_path%></h3></span>
         <%end%>
@@ -27,6 +27,10 @@
         </p>
       </div>
       <div class="col-4">
+        <%if user_signed_in?%>
+          <%@user = current_user%>
+          <span> <h3><%= link_to('My Account', @user) %></h3></span>
+        <%end%>
       </div>
     </div>
     <div class="container containerbody">

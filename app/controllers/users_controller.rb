@@ -1,15 +1,23 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize_admin, only: :index
   # GET /users
   # GET /users.json
   def index
     @users = User.all
+    if current_user.admin == false || current_user = false
+      redirect_to simple_pages_index_path
+    end
+
+
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    if @user != current_user
+      redirect_to simple_pages_index_path
+    end
   end
 
   # GET /users/new
@@ -25,7 +33,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @user.first_name = params[:first_name]
+    @user.last_name = params[:last_name]
+    @user.phonenumber = params[:phonenumber]
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -69,6 +79,10 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name)
+      params.require(:user).permit(:first_name, :last_name, :phonenumber)
+    end
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :phonenumber) }
     end
 end
