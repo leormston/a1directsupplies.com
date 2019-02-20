@@ -16,9 +16,10 @@
     <h5 id="productdescription"><%=@product.description%></h5>
     <div class="pricearea">
       <h5>
-        <%= form_with(url: "/user/cart", method: "post", local: true) do |form| %>
+        <%= form_with(url: "/carts/index", method: "post", local: true) do |form| %>
           <%=form.label :quantity%>
           <%=form.select(:quantity, Product::QUANTITY_LIST)%>
+          <%=form.hidden_field :product_id, value: @product.id%>
           <%=form.submit "Add to cart", class: "Addcartbutton"%>
         <%end%>
       </h5>

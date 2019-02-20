@@ -1,0 +1,27 @@
+<div class="row">
+  <%@carts.each do |cart|%>
+    <%image = @products.where(id: cart.product_id).pluck(:image_url).to_s.remove(']', '[', '"')%>
+    <%name = @products.where(id: cart.product_id).pluck(:name).to_s.remove(']', '[', '"')%>
+    <%price = @products.where(id: cart.product_id).pluck(:price).to_s.remove(']', '[', '"')%>
+    <%description = @products.where(id: cart.product_id).pluck(:description).to_s.remove(']', '[', '"')%>
+  <div class="col-2">
+    <p><%=image_tag(image, width: "75%", height: "150px")%></p>
+  </div>
+  <div class="col-10">
+    <h4><%=name%></h4>
+    <hr>
+    <p><%=description%></p>
+    <h5 class="price-quantity">Price: £<%=number_with_precision(price.to_f / 100, precision: 2)%></h5><h5 class="price-quantity">Quantity: <%=cart.quantity%></h5>
+    <h5 id="subtotal">Subtotal : £<%=number_with_precision(cart.subtotal.to_f / 100, precision: 2)%></h5>
+    <%= form_with(url: "/carts/index", method: "post", local: true) do |form| %>
+      <%=form.hidden_field :cart_id, value: cart.id%>
+      <%=form.submit "Remove From Cart"%>
+    <%end%>
+  </div>
+  <%end%>
+</div>
+<hr>
+<h2>Total : £<%=number_with_precision(@total.to_f / 100, precision: 2)%> </h2>
+<%= form_with(url: '/order/create') do |form| %>
+  <%= render 'stripe_checkout_button' %>
+<% end %>
