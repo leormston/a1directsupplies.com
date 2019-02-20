@@ -36,6 +36,7 @@ class UsersController < ApplicationController
     @user.first_name = params[:first_name]
     @user.last_name = params[:last_name]
     @user.phonenumber = params[:phonenumber]
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -79,7 +80,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :phonenumber)
+      params.require(:user).permit(:first_name, :last_name, :phonenumber, :streetname, :city, :postcode)
     end
 
     def configure_permitted_parameters

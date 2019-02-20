@@ -7,12 +7,17 @@
     <h5><strong>Last Name</strong> : <%=@user.last_name%></h5>
     <h5><strong>Phone Number</strong> : <%=@user.phonenumber%></h5>
     <h5><strong>Email</strong> : <%=@user.email%></h5>
+    <h4>Address </h5>
+    <hr>
+    <h5><strong>Street Name</strong> : <%=@user.streetname%></h5>
+    <h5><strong>City</strong> : <%=@user.city%></h5>
+    <h5><strong>Postcode</strong> : <%=@user.postcode%></h5>
   </div>
   <div class="col-12 col-sm-6">
-    <span><h3 id="editbutton"><%= link_to 'Edit Account Details', edit_user_path(@user) %><h3></span>
+    <span><%= link_to('Edit Account Details', edit_user_path(@user), :class => 'btn buttonborder') %></h3></span>
   </div>
   <div class="col-12">
-    <h2>Recent Orders</h3>
+    <h2>Recent Orders</h2>
     <hr>
   </div>
 </div>

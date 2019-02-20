@@ -1,3 +1,5 @@
+
+
 <div class="row">
   <%@carts.each do |cart|%>
     <%image = @products.where(id: cart.product_id).pluck(:image_url).to_s.remove(']', '[', '"')%>
@@ -22,6 +24,6 @@
 </div>
 <hr>
 <h2>Total : £<%=number_with_precision(@total.to_f / 100, precision: 2)%> </h2>
-<%= form_with(url: '/order/create') do |form| %>
+<%= form_with(url: '/carts/checkout',  method: "post", local: true) do |form| %>
   <%= render 'stripe_checkout_button' %>
 <% end %>

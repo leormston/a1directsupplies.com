@@ -16,9 +16,9 @@
     <div class="row abovenavsection">
       <div class="col-4">
         <%if user_signed_in?%>
-          <span> <h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3></span>
+          <span> <h3><%= link_to('Logout', destroy_user_session_path, method: :delete, :class => 'btn buttonborder') %></h3></span>
         <%else%>
-          <span><h3><%=link_to 'Log In', new_user_session_path%></h3></span>
+          <span><h3><%=link_to 'Log In', new_user_session_path, :class => 'btn buttonborder'%></h3></span>
         <%end%>
       </div>
       <div class="col-4">
@@ -29,7 +29,7 @@
       <div class="col-4">
         <%if user_signed_in?%>
           <%@user = current_user%>
-          <span> <h3><%= link_to('My Account', @user) %></h3></span>
+          <span> <h3><%= link_to('My Account', @user, :class => 'btn buttonborder') %><%= link_to(carts_index_path, :class => 'btn buttonborder') do %><i class="fas fa-shopping-cart"></i> Cart<% end %></h3></span>
         <%end%>
       </div>
     </div>

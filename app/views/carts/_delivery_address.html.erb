@@ -1,0 +1,12 @@
+<h2>Delivery Address</h2>
+<hr>
+<h5><strong>First Name</strong> : <%=@user.first_name%></h5>
+<h5><strong>Last Name</strong> : <%=@user.last_name%></h5>
+<h5><strong>Phone Number</strong> : <%=@user.phonenumber%></h5>
+<h5><strong>Email</strong> : <%=@user.email%></h5>
+<h4><strong>Address</strong> </h4>
+<hr>
+<h5><strong>Street Name</strong> : <%=@user.streetname%></h5>
+<h5><strong>City</strong> : <%=@user.city%></h5>
+<h5><strong>Postcode</strong> : <%=@user.postcode%></h5>
+<%=link_to('Edit Delivery Info', @user, :class => 'btn buttonborder')%>

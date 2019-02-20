@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get 'users/show'
   post 'carts/index'
   post 'carts/show'
+  post 'carts/checkout'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
