@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :products
   resources :carts
+  resources :orders
   get 'simple_pages/index'
   root 'simple_pages#index'
   get 'simple_pages/about'
@@ -14,5 +15,7 @@ Rails.application.routes.draw do
   post 'carts/index'
   post 'carts/show'
   post 'carts/checkout'
+  get 'orders/show'
+  get 'admin/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

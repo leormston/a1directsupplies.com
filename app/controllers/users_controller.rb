@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     if @user != current_user
       redirect_to simple_pages_index_path
     end
+    @orders = Order.where(user_id: current_user.id)
   end
 
   # GET /users/new

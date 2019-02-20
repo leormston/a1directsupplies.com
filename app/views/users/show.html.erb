@@ -20,5 +20,22 @@
     <h2>Recent Orders</h2>
     <hr>
   </div>
+  <%@orders.each do |order|%>
+  <div class="col-4">
+    <h4><strong>Order Number : #000<%=order.id%></strong></h4>
+    <p>Date of order <%=order.updated_at.to_s.remove("UTC")%></p>
+  </div>
+  <div class="col-4">
+    <h4>Total: £<%=number_with_precision(order.total / 100, precision: 2)%></h4>
+  </div>
+  <div class="col-3">
+    <%= form_with(url: "/orders/show", method: "get", local: true) do |form| %>
+      <%=form.hidden_field :order_id, value: order.id%>
+      <h5><%=form.submit "view order"%></h5>
+    <%end%>
+  </div>
+  <hr>
+  <%end%>
 </div>
-<p>
+
+<%=render partial: '/shared/call'%>

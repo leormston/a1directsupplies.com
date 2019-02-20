@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<h1>Products <%if user_signed_in? && current_user.admin%>
+  <%= link_to('New Product', new_product_path, :class => 'btn buttonborder admintools') %>
+  <%end%>
+</h1>
 <hr>
 <div class="row">
   <div class="col-3">
     <h5> Filter Category</h5>
   </div>
+
   <div class="col-3">
     <%= form_with(url: "/products", method: "get", local: true) do |form| %>
       <%= form.select(:category, Product::PRODUCT_LIST)%>
@@ -18,7 +22,5 @@
 
 
 
+
 <%= render 'product_list'%>
-
-
-<%= link_to 'New Product', new_product_path %>

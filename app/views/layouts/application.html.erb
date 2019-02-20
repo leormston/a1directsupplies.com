@@ -69,6 +69,11 @@
         <div class="col-12">
           <p>Designed and created by Louie Ormston</p>
         </div>
+        <%if user_signed_in? && current_user.admin%>
+          <div class="col-12">
+            <p><%=link_to "admin", admin_index_path%></p>
+          </div>
+        <%end%>
       </div>
     </footer>
   </body>
