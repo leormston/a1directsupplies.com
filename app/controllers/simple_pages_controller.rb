@@ -1,5 +1,6 @@
 class SimplePagesController < ApplicationController
   def index
+    @products = Product.where(display: true).limit(4)
   end
 
   def thank_you

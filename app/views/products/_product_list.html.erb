@@ -15,7 +15,10 @@
       <div class="admintools">
         <p style="text-align: center;">
           <%= link_to('Edit', edit_product_path(product), :class => 'btn buttonborder') %>
-          <%= link_to('Delete', product, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn buttonborder') %>
+          <%= form_with(url: "/products/hide", method: "post", local: true) do |form| %>
+            <%=form.hidden_field :product_id, value: product.id%>
+            <%=form.submit "Hide", class: 'btn buttonborder'%>
+          <%end%>
         </p>
       </div>
     <%end%>

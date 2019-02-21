@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
-  before_action :authorize_admin, only: [:new, :create, :update, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :hide]
+  before_action :authorize_admin, only: [:new, :create, :update, :edit, :destroy, :hide]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.where(display: true)
   end
 
   # GET /products/1
@@ -62,6 +62,16 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def hide
+    product_id = params[:product_id]
+    @product = Product.find(product_id)
+    @product.display = false
+    @product.save
+    redirect_to simple_pages_index_path
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
