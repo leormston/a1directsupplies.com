@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @user = current_user
     @carts = Cart.where(order_id: 0)
@@ -60,6 +60,11 @@ class CartsController < ApplicationController
     Cart.where(order_id: 0, user_id: current_user.id).update_all(order_id: @order.id)
     @orders = Order.where(user_id: current_user.id)
 
+    # for the confirmation email
+    @carts = Cart.where(order_id: @order.id)
+    @user = current_user
+    @products = Product.all
+    UserMailer.purchase_confirmation(@user.email, @carts, @total, @order, @user, @products).deliver_now
   end
 
 end

@@ -1,0 +1,53 @@
+<%=render 'top'%>
+
+<h2>Thank you for your order #000<%=@order.id%></h2>
+<table style="width:80%", style="border: 1px solid black">
+  <tbody>
+    <tr>
+      <th style="border: 1px solid black">Product</th>
+      <th style="border: 1px solid black">Description</th>
+      <th style="border: 1px solid black">Quantity</th>
+      <th style="border: 1px solid black">Price</th>
+      <th style="border: 1px solid black">Subtotal</th>
+    </tr>
+    <%@carts.each do |cart|%>
+      <%@product = @products.find(cart.product_id)%>
+      <tr>
+        <td style="border: 1px solid black"><%=@product.name%></td>
+        <td style="border: 1px solid black"><%=@product.description%></td>
+        <td style="border: 1px solid black"><%=cart.quantity%></td>
+        <td style="border: 1px solid black"><%=number_with_precision(@product.price.to_f / 100, precision: 2)%></td>
+        <td style="border: 1px solid black"><%subtotal = @product.price.to_f * cart.quantity.to_f%> <%=number_with_precision(subtotal.to_f / 100, precision: 2).to_s%></td>
+      </tr>
+    <%end%>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td style="border: 1px solid black">Total : </td>
+      <td style="border: 1px solid black"><strong><%=@total%></strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <th><h2>Delivery information</h2></th>
+    </tr>
+    <tr>
+      <td><p><%=@order.Street%></p></td>
+    </tr>
+    <tr>
+      <td><p><%=@order.City%></p></h2></td>
+    </tr>
+    <tr>
+      <td><p><%=@order.Postcode%></p></td>
+    </tr>
+    <tr>
+      <td><p><%=@user.first_name%>_<%=@user.last_name%></p></td>
+    </tr>
+  </tbody>
+</table>
+
+<%=render 'bottom'%>
