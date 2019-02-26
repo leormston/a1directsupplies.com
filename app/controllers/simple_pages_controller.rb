@@ -8,7 +8,6 @@ class SimplePagesController < ApplicationController
     @email = params[:email]
     @phone = params[:phone]
     @message = params[:message]
-    @messagebody = "Name: #{@name}\n" + "Phone: #{@phone}\n" + "Email: #{@email}\n" + "Message: #{@message}"
-    UserMailer.contact_form(@email, @name, @messagebody).deliver_now
+    UserMailer.contact_form(@email, @name, @phone, @message).deliver_now
   end
 end
