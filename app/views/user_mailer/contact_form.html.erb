@@ -1,23 +1,26 @@
+<%=render 'top'%>
 <table style="width:80%">
   <tbody>
     <tr>
       <td><h3>You have recieved a new message from the A1 Direct Supplies contact page</h3></td>
     </tr>
     <tr>
-      <th>Name</th>
+      <th><p><strong>Name</strong></p></th>
       <td><%=@name%></td>
     </tr>
     <tr>
-      <th>Email</th>
+      <th><p><strong>Email</strong></p></th>
       <td><%=@email%></td>
     </tr>
     <tr>
-      <th>Phone Number</th>
+      <th><p><strong>Phone Number</strong></p></th>
       <td><%=@phone%></td>
     </tr>
     <tr>
-      <th>Message</th>
+      <th><p><strong>Message</strong></p></th>
       <td><%=@message%></td>
     </tr>
   </tbody>
-</table\>
+</table>
+
+<%=render 'bottom'%>
