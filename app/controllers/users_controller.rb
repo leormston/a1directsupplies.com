@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    if current_user.admin == false || current_user = false
+    if current_user.admin == false || current_user == false
       redirect_to simple_pages_index_path
     end
 
