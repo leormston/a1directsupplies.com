@@ -46,6 +46,11 @@
     <%= form.text_field :brand %>
   </div>
 
+  <div class="field">
+    <%= form.label :display %>
+    <%= form.hidden_field :display, value: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
