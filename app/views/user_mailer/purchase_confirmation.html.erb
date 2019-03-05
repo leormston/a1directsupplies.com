@@ -25,7 +25,7 @@
       <td></td>
       <td></td>
       <td style="border: 1px solid black">Total : </td>
-      <td style="border: 1px solid black"><strong><%=@total%></strong></td>
+      <td style="border: 1px solid black"><strong>£<%=number_with_precision(@total.to_f / 100 precision: 2)%></strong></td>
     </tr>
   </tbody>
 </table>
