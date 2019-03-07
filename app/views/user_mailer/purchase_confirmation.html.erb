@@ -15,9 +15,10 @@
       <tr>
         <td style="border: 1px solid black"><%=@product.name%></td>
         <td style="border: 1px solid black"><%=@product.description%></td>
-        <td style="border: 1px solid black"><%=cart.quantity%></td>
+        <td style="border: 1px solid black"><%=cart.quantity.to_s%></td>
         <td style="border: 1px solid black"><%=number_with_precision(@product.price.to_f / 100, precision: 2)%></td>
-        <td style="border: 1px solid black"><%subtotal = @product.price.to_f * cart.quantity.to_f%> <%=number_with_precision(subtotal.to_f / 100, precision: 2).to_s%></td>
+        <%subtotal = @product.price.to_f * cart.quantity.to_f%>
+        <td style="border: 1px solid black"> <%=number_with_precision(subtotal.to_f / 100, precision: 2).to_s%></td>
       </tr>
     <%end%>
     <tr>
@@ -25,7 +26,7 @@
       <td></td>
       <td></td>
       <td style="border: 1px solid black">Total : </td>
-      <td style="border: 1px solid black"><strong>£<%=number_with_precision(@total.to_f / 100 precision: 2)%></strong></td>
+      <td style="border: 1px solid black"><strong>£<%=number_with_precision(@total.to_f / 100, precision: 2).to_s%></strong></td>
     </tr>
   </tbody>
 </table>

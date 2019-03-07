@@ -6,7 +6,12 @@
   <%end%>
   <% @products.each do |product|%>
   <div class="col-6 col-sm-3 productmini">
-    <%=image_tag(product.image_url, width: "100%", height: "200px")%>
+    <%if product.image_url?%>
+      <%=image_tag(product.image_url, width: "100%", height: "200px")%>
+    <%end%>
+    <%if product.image.attached?%>
+      <%=image_tag(product.image, width: "100%", height: "200px;")%>
+    <%end%>
     <h3><%=link_to product.name, product%></h3>
     <hr>
     <p>Product Code: <%=product.part_number%></p>

@@ -2,12 +2,17 @@
 
 <div class="row">
   <%@carts.each do |cart|%>
+    <%@product = Product.find(cart.product_id)%>
     <%image = @products.where(id: cart.product_id).pluck(:image_url).to_s.remove(']', '[', '"')%>
     <%name = @products.where(id: cart.product_id).pluck(:name).to_s.remove(']', '[', '"')%>
     <%price = @products.where(id: cart.product_id).pluck(:price).to_s.remove(']', '[', '"')%>
     <%description = @products.where(id: cart.product_id).pluck(:description).to_s.remove(']', '[', '"')%>
   <div class="col-2">
-    <p><%=image_tag(image, width: "75%", height: "150px")%></p>
+    <%if @product.image.attached?%>
+      <p><%=image_tag(@product.image, width: "75%", height: "150px;")%></p>
+    <%else%>
+      <p><%=image_tag(image, width: "75%", height: "150px")%></p>
+    <%end%>
   </div>
   <div class="col-10">
     <h4><%=name%></h4>

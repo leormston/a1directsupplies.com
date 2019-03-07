@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-
+  has_one_attached :image
   PRODUCT_LIST = ["Bearing", "Fasteners", "Tools", "Abrasives", "Electrical", "Welding",
     "Motor/Gearbox", "PPE/Footwear", "Adhesives", "Chains/Sprocket", "Maintenance", "Power Tools",
     "Pneumatics", "Hydraulics", "Drilling/Tapping/Reaming", "Lubricants"]

@@ -7,7 +7,11 @@
 <%@product = @products.find(cart.product_id)%>
 <div class="row">
   <div class="col-2">
-    <p><%=image_tag(@product.image_url, width: "75%", height: "150px")%></p>
+    <%if @product.image.attached?%>
+      <p><%=image_tag(@product.image, width: "75%", height: "150px")%></p>
+    <%else%>
+      <p><%=image_tag(@product.image_url, width: "75%", height: "150px")%></p>
+    <%end%>
   </div>
   <div class="col-10">
     <h4><%=@product.name%></h4>
