@@ -95,6 +95,10 @@ class CartsController < ApplicationController
         @user = current_user
         @products = Product.all
         UserMailer.purchase_confirmation(@user.email, @carts, @total, @order, @user, @products).deliver_now
+        ActionMailer::Base.mail(from: 'donotreply@a1directsupplies.co.uk',
+        to: 'sales@a1directsupplies.co.uk',
+        subject: "A new order has came through",
+        body: "Please check the site as a potential new order has been confirmed.").deliver_now
 
       end
 

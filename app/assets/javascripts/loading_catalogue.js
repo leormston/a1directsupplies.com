@@ -3,7 +3,7 @@ var catalogueProducts = [
     title: "Bearings",
     pic: 'url(/assets/bearing-modal-mini.jpg);',
     bigger_picture: '',
-    description: 'bananananaanananananananananaa',
+    description: '',
     modal_number: "1"
   },
   {
@@ -17,7 +17,7 @@ var catalogueProducts = [
     title: "Abrasives",
     pic: 'url(/assets/sait-modal-mini.jpg);',
     bigger_picture: '',
-    description: 'bananananaanananananananananaa',
+    description: '',
     modal_number: "3"
   },
   {
@@ -31,7 +31,7 @@ var catalogueProducts = [
     title: "Electrical",
     pic: 'url(/assets/electrical-modal-mini.jpeg);',
     bigger_picture: '',
-    description: 'bananananaanananananananananaa',
+    description: '',
     modal_number: "5"
   },
   {
@@ -45,7 +45,7 @@ var catalogueProducts = [
     title: "PPE / Footwear",
     pic: 'url(/assets/ppe-modal-mini.jpg);',
     bigger_picture: '',
-    description: 'bananananaanananananananananaa',
+    description: '',
     modal_number: "7"
   },
   {
@@ -59,7 +59,7 @@ var catalogueProducts = [
     title: "Chains / Sprocket",
     pic: 'url(/assets/chain-modal-mini.jpeg);',
     bigger_picture: '',
-    description: 'bananananaanananananananananaa',
+    description: '',
     modal_number: "9"
   },
   {
@@ -73,14 +73,14 @@ var catalogueProducts = [
     title: "Pneumatics",
     pic: 'url(/assets/pneumatics-modal-mini.jpg);',
     bigger_picture: '',
-    description: 'bananananaanananananananananaa',
+    description: '',
     modal_number: "11"
   },
   {
     title: "Drilling / Tapping",
     pic: 'url(/assets/tap-modal-mini.jpeg);',
     bigger_picture: '',
-    description: 'bananananaanananananananananaa',
+    description: '',
     modal_number: "11"
   }
 ]
@@ -92,9 +92,6 @@ document.addEventListener("turbolinks:load", function () {
         <button type='button' class='btn btn-primary' data-toggle='modal' data-target='.bd-example-modal-lg-" + catalogueProducts[i].modal_number +  "'>" + catalogueProducts[i].title + " </button>\
         <div class='modal fade bd-example-modal-lg-" + catalogueProducts[i].modal_number +  "' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true'>\
         <div class='modal-dialog modal-lg'>\
-          <div class='modal-content'>\
-              '" + catalogueProducts[i].description + "'  \
-          </div>\
         </div>\
       </div>\
     ");
