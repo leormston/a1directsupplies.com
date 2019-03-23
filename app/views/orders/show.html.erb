@@ -20,6 +20,9 @@
     <h5 class="price-quantity">Price: £<%=number_with_precision(@product.price.to_f / 100, precision: 2)%></h5><h5 class="price-quantity">Quantity: <%=cart.quantity%></h5>
     <h5 id="subtotal">Subtotal : £<%=number_with_precision(cart.subtotal.to_f / 100, precision: 2)%></h5>
   </div>
+  <div class="col-12">
+    <h5 id="subtotal"><strong>Courier Charge : £<%=number_with_precision(@order.shipping / 100, precision: 2)%></strong></h5>
+  </div>
 </div>
 <%end%>
 <hr>

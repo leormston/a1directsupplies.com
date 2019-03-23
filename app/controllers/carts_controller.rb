@@ -23,7 +23,13 @@ class CartsController < ApplicationController
       user_id = current_user.id
       @carts = Cart.where(user_id: user_id, order_id: 0)
     end
-    @total = Cart.where(user_id: current_user.id, order_id: 0).sum('subtotal')
+    @product_total = Cart.where(user_id: current_user.id, order_id: 0).sum('subtotal') #finds this total value of the transaction by adding all of the subtotals up
+    if @product_total < 10000
+      @shipping = 1000
+    else
+      @shipping = 0
+    end
+    @total = @product_total.to_i + @shipping.to_i
   end
 
   def show
@@ -49,14 +55,25 @@ class CartsController < ApplicationController
       @carts = Cart.where(user_id: user_id, order_id: 0)
 
     end
-    @total = Cart.where(user_id: current_user.id, order_id: 0).sum('subtotal')
+    @product_total = Cart.where(user_id: current_user.id, order_id: 0).sum('subtotal') #finds this total value of the transaction by adding all of the subtotals up
+    if @product_total < 10000
+      @shipping = 1000
+    else
+      @shipping = 0
+    end
+    @total = @product_total.to_i + @shipping.to_i
   end
 
   def checkout
     token = params[:stripeToken]
     @carts = Cart.where(order_id: 0, user_id: current_user.id) #this checks all orders which haven't been paid for and belong to the current user logged in
-    @total = Cart.where(user_id: current_user.id, order_id: 0).sum('subtotal') #finds this total value of the transaction by adding all of the subtotals up
-
+    @product_total = Cart.where(user_id: current_user.id, order_id: 0).sum('subtotal') #finds this total value of the transaction by adding all of the subtotals up
+    if @product_total < 10000
+      @shipping = 1000
+    else
+      @shipping = 0
+    end
+    @total = @product_total.to_i + @shipping.to_i
     begin
 
       charge = Stripe::Charge.create(
@@ -69,7 +86,7 @@ class CartsController < ApplicationController
 
       if charge.paid #this is what happens if the payment is succesful
         @order = Order.create(user_id: current_user.id, Street: current_user.streetname, City: current_user.city,
-        Postcode: current_user.postcode, total: @total) #creates order
+        Postcode: current_user.postcode, total: @total, shipping: @shipping) #creates order
         Cart.where(order_id: 0, user_id: current_user.id).update_all(order_id: @order.id) #updates rows in cart table with the correct order_id
         flash[:notice] = "Payment Succesful"
         flash[:success] = "Order (Number 000#{@order.id}) is being processed and dealt with"

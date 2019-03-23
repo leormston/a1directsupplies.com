@@ -1,6 +1,13 @@
 <%=render 'delivery_address'%>
 <h2>Your Basket</h2>
 <hr>
-
-<%=render 'cartlist'%>
+<%if @carts.present?%>
+  <%=render 'cartlist'%>
+<%end%>
+<%if !@carts.present?%>
+  <div class="empty-basket">
+    <h3 >Your cart is currently empty</h3>
+    <p>Visit the <%=link_to "Online Store", products_path%> to add products to your cart</p>
+  </div>
+<%end%>
 <%=render partial: '/shared/call'%>

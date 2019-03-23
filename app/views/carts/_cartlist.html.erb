@@ -26,9 +26,12 @@
     <%end%>
   </div>
   <%end%>
+  <div class="col-12">
+    <h5 id="subtotal"><strong>Courier Charge : £<%=number_with_precision(@shipping/ 100, precision: 2)%></strong></h5>
+  </div>
 </div>
 <hr>
-<h2>Total : £<%=number_with_precision(@total.to_f / 100, precision: 2)%> </h2>
+<h2 id="total"><strong>Total : £<%=number_with_precision(@total.to_f / 100, precision: 2)%> </strong></h2>
 <%= form_with(url: '/carts/checkout',  method: "post", local: true) do |form| %>
   <%= render 'stripe_checkout_button' %>
 <% end %>

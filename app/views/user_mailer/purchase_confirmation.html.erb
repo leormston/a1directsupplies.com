@@ -25,6 +25,13 @@
       <td></td>
       <td></td>
       <td></td>
+      <td style="border: 1px solid black">Courier :</td>
+      <td style="border: 1px solid black"><strong>£<%=number_with_precision(@order.shipping.to_f / 100, precision: 2).to_s%></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
       <td style="border: 1px solid black">Total : </td>
       <td style="border: 1px solid black"><strong>£<%=number_with_precision(@total.to_f / 100, precision: 2).to_s%></strong></td>
     </tr>

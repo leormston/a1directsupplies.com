@@ -80,3 +80,13 @@ span {
  font-size: 2rem;
 padding-left: 25%;
 }
+
+.carousel-control-next:hover {
+  opacity: 0.2px;
+}
+
+#rightbutton:hover,
+#leftbutton:hover {
+  opacity: 0.2;
+
+}
