@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+  <div class="alert alert-warning" role="alert"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
+<% end %>
+
 <h2>Thank you <%=current_user.first_name%> for placing an order with us </h2>
 <hr>
 <p>A member of our team will give you a call soon to confirm the details of the transaction </p>
